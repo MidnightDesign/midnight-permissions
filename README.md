@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/MidnightDesign/midnight-permissions.svg?branch=master)](https://travis-ci.org/MidnightDesign/midnight-permissions)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/MidnightDesign/midnight-permissions/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/MidnightDesign/midnight-permissions/?branch=master)
+
 midnight/permissions
 ====================
 
