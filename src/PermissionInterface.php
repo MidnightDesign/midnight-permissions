@@ -7,6 +7,7 @@ interface PermissionInterface
     /**
      * @param mixed|null $user
      * @param mixed|null $resource
+     * @return bool
      */
-    public function isAllowed($user = null, $resource = null): bool;
+    public function isAllowed($user = null, $resource = null);
 }
