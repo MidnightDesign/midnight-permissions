@@ -1,24 +1,18 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace Midnight\Permissions;
 
 use Interop\Container\ContainerInterface;
+use Interop\Container\Exception\ContainerException;
+use Interop\Container\Exception\NotFoundException;
 use Midnight\Permissions\Exception\InvalidPermissionException;
 use Midnight\Permissions\Exception\UnknownPermissionException;
 
-/**
- * Class PermissionService
- * @package Midnight\Permissions
- */
-class PermissionService implements PermissionServiceInterface
+final class PermissionService implements PermissionServiceInterface
 {
     /** @var ContainerInterface */
     private $container;
 
-    /**
-     * PermissionService constructor.
-     * @param ContainerInterface $container
-     */
     public function __construct(ContainerInterface $container)
     {
         $this->container = $container;
@@ -26,11 +20,13 @@ class PermissionService implements PermissionServiceInterface
 
     /**
      * @param mixed|null $user
-     * @param string $permission
      * @param mixed|null $resource
-     * @return bool
+     * @throws UnknownPermissionException
+     * @throws InvalidPermissionException
+     * @throws ContainerException
+     * @throws NotFoundException
      */
-    public function isAllowed($user = null, $permission, $resource = null)
+    public function isAllowed($user = null, string $permission, $resource = null): bool
     {
         if (!$this->container->has($permission)) {
             throw new UnknownPermissionException(sprintf('Unknown permission %s.', $permission));
