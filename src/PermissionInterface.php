@@ -1,17 +1,12 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace Midnight\Permissions;
 
-/**
- * Interface PermissionInterface
- * @package Midnight\Permissions
- */
 interface PermissionInterface
 {
     /**
      * @param mixed|null $user
      * @param mixed|null $resource
-     * @return boolean
      */
-    public function isAllowed($user = null, $resource = null);
+    public function isAllowed($user = null, $resource = null): bool;
 }
