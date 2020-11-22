@@ -9,6 +9,7 @@ interface PermissionServiceInterface
     /**
      * @param mixed|null $user
      * @param mixed|null $resource
+     * @return bool
      */
     public function isAllowed($user = null, string $permission, $resource = null);
 }

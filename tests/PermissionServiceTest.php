@@ -13,6 +13,11 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
+use function get_class;
+use function gettype;
+use function is_object;
+use function sprintf;
+
 class PermissionServiceTest extends TestCase
 {
     /** @var ContainerInterface & MockObject */
@@ -57,9 +62,19 @@ class PermissionServiceTest extends TestCase
     {
         $this->container->method('has')->willReturn(true);
         $this->container->method('get')->willReturn(new stdClass());
+        $permission = 'some_unknown_permission';
 
+        $permissionObject = $this->container->get($permission);
         $this->expectException(InvalidPermissionException::class);
+        $this->expectExceptionMessage(
+            sprintf(
+                '"%s" is not a permission. Expected an instance of %s, but got %s.',
+                $permission,
+                PermissionInterface::class,
+                is_object($permissionObject) ? get_class($permissionObject) : gettype($permissionObject)
+            )
+        );
 
-        $this->service->isAllowed(new stdClass(), 'some_unknown_permission', new stdClass());
+        $this->service->isAllowed(new stdClass(), $permission, new stdClass());
     }
 }

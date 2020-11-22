@@ -39,5 +39,21 @@
         "psr-4": {
             "MidnightTest\\Permissions\\": "tests"
         }
+    },
+    "minimum-stability": "stable",
+    "scripts": {
+        "check": [
+            "@check-deps",
+            "@cs-check",
+            "@phpstan",
+            "@phpunit",
+            "@infection"
+        ],
+        "check-deps": "vendor/bin/composer-require-checker",
+        "cs-check": "vendor/bin/phpcs",
+        "cs-fix": "vendor/bin/phpcbf",
+        "infection": "vendor/bin/infection --threads=4",
+        "phpstan": "vendor/bin/phpstan analyse",
+        "phpunit": "vendor/bin/phpunit"
     }
 }
