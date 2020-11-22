@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace MidnightTest\Permissions;
 
-use Interop\Container\ContainerInterface;
 use Midnight\Permissions\Exception\InvalidPermissionException;
 use Midnight\Permissions\Exception\UnknownPermissionException;
 use Midnight\Permissions\PermissionInterface;
 use Midnight\Permissions\PermissionService;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Psr\Container\ContainerInterface;
 use stdClass;
 
 use function get_class;

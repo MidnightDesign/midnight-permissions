@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Midnight\Permissions;
 
-use Interop\Container\ContainerInterface;
 use Midnight\Permissions\Exception\InvalidPermissionException;
 use Midnight\Permissions\Exception\UnknownPermissionException;
+use Psr\Container\ContainerInterface;
 
 use function get_class;
 use function gettype;
