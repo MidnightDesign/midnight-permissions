@@ -1,4 +1,6 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Midnight\Permissions;
 
@@ -7,6 +9,11 @@ use Interop\Container\Exception\ContainerException;
 use Interop\Container\Exception\NotFoundException;
 use Midnight\Permissions\Exception\InvalidPermissionException;
 use Midnight\Permissions\Exception\UnknownPermissionException;
+
+use function get_class;
+use function gettype;
+use function is_object;
+use function sprintf;
 
 final class PermissionService implements PermissionServiceInterface
 {

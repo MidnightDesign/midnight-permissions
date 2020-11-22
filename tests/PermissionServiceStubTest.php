@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MidnightTest\Permissions;
 
 use Midnight\Permissions\PermissionServiceStub;

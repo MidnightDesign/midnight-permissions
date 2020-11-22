@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MidnightTest\Permissions;
 
 use Interop\Container\ContainerInterface;
@@ -26,9 +28,9 @@ class PermissionServiceTest extends TestCase
 
     public function testIsAllowed()
     {
-        $user = new stdClass;
+        $user = new stdClass();
         $permissionName = 'can_do_something';
-        $resource = new stdClass;
+        $resource = new stdClass();
 
         $permission = $this->createMock(PermissionInterface::class);
         $permission
@@ -49,16 +51,16 @@ class PermissionServiceTest extends TestCase
 
         $this->expectException(UnknownPermissionException::class);
 
-        $this->service->isAllowed(new stdClass, 'some_unknown_permission', new stdClass);
+        $this->service->isAllowed(new stdClass(), 'some_unknown_permission', new stdClass());
     }
 
     public function testInvalidPermission()
     {
         $this->container->method('has')->willReturn(true);
-        $this->container->method('get')->willReturn(new stdClass);
+        $this->container->method('get')->willReturn(new stdClass());
 
         $this->expectException(InvalidPermissionException::class);
 
-        $this->service->isAllowed(new stdClass, 'some_unknown_permission', new stdClass);
+        $this->service->isAllowed(new stdClass(), 'some_unknown_permission', new stdClass());
     }
 }
