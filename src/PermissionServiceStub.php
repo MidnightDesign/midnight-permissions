@@ -1,13 +1,18 @@
-<?php declare(strict_types = 1);
+<?php
+
+declare(strict_types=1);
 
 namespace Midnight\Permissions;
 
 final class PermissionServiceStub implements PermissionServiceInterface
 {
-    /** @var bool */
-    private $isAllowed = true;
+    private bool $isAllowed = true;
 
-    public function isAllowed($user = null, string $permission, $resource = null)
+    /**
+     * @param mixed|null $user
+     * @param mixed|null $resource
+     */
+    public function isAllowed($user = null, string $permission, $resource = null): bool
     {
         return $this->isAllowed;
     }

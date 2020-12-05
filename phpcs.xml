@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<ruleset name="Eventjet coding standard">
+    <rule ref="EventjetStrict"/>
+    <file>src</file>
+    <file>tests</file>
+
+    <!-- @todo remove those exclusions when bumping the major version -->
+    <rule ref="PEAR.Functions.ValidDefaultValue.NotAtEnd">
+        <exclude-pattern>src/PermissionService.php</exclude-pattern>
+        <exclude-pattern>src/PermissionServiceInterface.php</exclude-pattern>
+        <exclude-pattern>src/PermissionServiceStub.php</exclude-pattern>
+    </rule>
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint">
+        <exclude-pattern>src/PermissionInterface.php</exclude-pattern>
+        <exclude-pattern>src/PermissionServiceInterface.php</exclude-pattern>
+    </rule>
+
+</ruleset>

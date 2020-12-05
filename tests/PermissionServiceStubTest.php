@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace MidnightTest\Permissions;
 
 use Midnight\Permissions\PermissionServiceStub;
@@ -7,25 +9,24 @@ use PHPUnit\Framework\TestCase;
 
 class PermissionServiceStubTest extends TestCase
 {
-    /** @var PermissionServiceStub */
-    private $service;
+    private PermissionServiceStub $service;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
         $this->service = new PermissionServiceStub();
     }
 
-    public function testIsAllowedDefaultsToTrue()
+    public function testIsAllowedDefaultsToTrue(): void
     {
-        $this->assertTrue($this->service->isAllowed(null, 'some_permission'));
+        self::assertTrue($this->service->isAllowed(null, 'some_permission'));
     }
 
-    public function testSetIsAllowed()
+    public function testSetIsAllowed(): void
     {
         $this->service->setIsAllowed(false);
 
-        $this->assertFalse($this->service->isAllowed(null, 'some_permission'));
+        self::assertFalse($this->service->isAllowed(null, 'some_permission'));
     }
 }

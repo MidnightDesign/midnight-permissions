@@ -1,10 +1,13 @@
 {
     "name": "midnight/permissions",
+    "type": "library",
+    "description": "Simple permissions system",
     "keywords": [
         "permissions",
         "permission",
         "access control"
     ],
+    "license": "MIT",
     "authors": [
         {
             "name": "Rudolph Gottesheim",
@@ -13,16 +16,43 @@
         }
     ],
     "require": {
-        "php": "^7.1",
-        "container-interop/container-interop": "^1"
+        "php": "^7.4",
+        "psr/container": "^1.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.0"
+        "eventjet/coding-standard": "^3.2",
+        "infection/infection": "^0.20.0",
+        "maglnet/composer-require-checker": "^2.1",
+        "phpstan/extension-installer": "^1.0",
+        "phpstan/phpstan": "^0.12.32",
+        "phpstan/phpstan-phpunit": "^0.12.16",
+        "phpstan/phpstan-strict-rules": "^0.12.2",
+        "phpunit/phpunit": "^9.3"
     },
     "autoload": {
         "psr-4": {
             "Midnight\\Permissions\\": "src"
         }
     },
-    "license": "MIT"
+    "autoload-dev": {
+        "psr-4": {
+            "MidnightTest\\Permissions\\": "tests"
+        }
+    },
+    "minimum-stability": "stable",
+    "scripts": {
+        "check": [
+            "@check-deps",
+            "@cs-check",
+            "@phpstan",
+            "@phpunit",
+            "@infection"
+        ],
+        "check-deps": "vendor/bin/composer-require-checker",
+        "cs-check": "vendor/bin/phpcs",
+        "cs-fix": "vendor/bin/phpcbf",
+        "infection": "vendor/bin/infection --threads=4",
+        "phpstan": "vendor/bin/phpstan analyse",
+        "phpunit": "vendor/bin/phpunit"
+    }
 }
