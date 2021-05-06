@@ -12,7 +12,7 @@ final class PermissionServiceStub implements PermissionServiceInterface
      * @param mixed|null $user
      * @param mixed|null $resource
      */
-    public function isAllowed($user = null, string $permission, $resource = null): bool
+    public function isAllowed($user, string $permission, $resource = null): bool
     {
         return $this->isAllowed;
     }
