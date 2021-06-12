@@ -28,7 +28,7 @@ final class PermissionService implements PermissionServiceInterface
      * @throws UnknownPermissionException
      * @throws InvalidPermissionException
      */
-    public function isAllowed($user = null, string $permission, $resource = null): bool
+    public function isAllowed($user, string $permission, $resource = null): bool
     {
         if (!$this->container->has($permission)) {
             throw new UnknownPermissionException(sprintf('Unknown permission %s.', $permission));
