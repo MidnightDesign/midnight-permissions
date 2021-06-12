@@ -8,9 +8,6 @@ jobs:
     strategy:
       matrix:
         php: ["7.4", "8.0"]
-        include:
-          - php: "8.0"
-            composer_args: "--ignore-platform-reqs"
 
     runs-on: ubuntu-latest
     container:
@@ -36,7 +33,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer update --no-progress --no-interaction ${{ matrix.composer_args }} > /dev/null
+          composer update --no-progress --no-interaction > /dev/null
 
       - name: PHPCS
         if: matrix.php != '8.0'
