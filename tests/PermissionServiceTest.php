@@ -22,6 +22,7 @@ class PermissionServiceTest extends TestCase
 {
     /** @var ContainerInterface & MockObject */
     private $container;
+    /** @var PermissionService<stdClass, stdClass> */
     private PermissionService $service;
 
     protected function setUp(): void
