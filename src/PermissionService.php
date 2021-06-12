@@ -13,6 +13,11 @@ use function gettype;
 use function is_object;
 use function sprintf;
 
+/**
+ * @template TUser
+ * @template TResource
+ * @implements PermissionServiceInterface<TUser, TResource>
+ */
 final class PermissionService implements PermissionServiceInterface
 {
     private ContainerInterface $container;
@@ -23,8 +28,8 @@ final class PermissionService implements PermissionServiceInterface
     }
 
     /**
-     * @param mixed|null $user
-     * @param mixed|null $resource
+     * @param TUser|null $user
+     * @param TResource|null $resource
      * @throws UnknownPermissionException
      * @throws InvalidPermissionException
      */
