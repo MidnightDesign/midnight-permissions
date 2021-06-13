@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.org/MidnightDesign/midnight-permissions.svg?branch=master)](https://travis-ci.org/MidnightDesign/midnight-permissions)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/MidnightDesign/midnight-permissions/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/MidnightDesign/midnight-permissions/?branch=master)
+[![Check Build](https://github.com/MidnightDesign/midnight-permissions/actions/workflows/checks.yml/badge.svg)](https://github.com/MidnightDesign/midnight-permissions/actions/workflows/checks.yml)
 
 midnight/permissions
 ====================
